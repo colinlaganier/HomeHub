@@ -142,7 +142,8 @@ int EPD_4in2_test(void)
     printf("HOMEHUB demo\r\n");
 
     Paint_DrawString_EN(0, 0, "14:25", &Font15test, WHITE, BLACK);
-    Paint_DrawString_EN(160, 0, "HOMEHUB", &Font15test, WHITE, BLACK);
+    // Paint_DrawString_EN(160, 0, "HOMEHUB", &Font15test, WHITE, BLACK);
+    GUI_ReadBmp("./pic/homehub.bmp", 160, 0);
     Paint_DrawString_EN(325, 0, "SUN, MAY 7", &Font15test, WHITE, BLACK);
     Paint_DrawLine(0, 25, 400, 25, BLACK, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
 
