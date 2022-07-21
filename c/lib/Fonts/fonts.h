@@ -86,6 +86,7 @@ extern sFONT Font12;
 extern sFONT Font8;
 
 extern sFONT Font15;
+extern sFONT Font10;
 extern sFONT Font15test;
 
 extern cFONT Font12CN;
