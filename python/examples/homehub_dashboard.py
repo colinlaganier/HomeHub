@@ -149,6 +149,33 @@ try:
     epd.display(epd.getbuffer(Himage5))
     time.sleep(2)
 
+    font12 = ImageFont.truetype(os.path.join(picdir, 'SourceSansPro.ttf'), 12)
+
+
+    logging.info("Dashboard")
+    Dashboard = Image.new('1', (epd.width, epd.height), 255)
+    draw = ImageDraw.Draw(Dashboard)
+    draw.text((, ), '', font = font, fill = 0)
+    draw.text((0, 0), '14:25', font = font18, fill = 0)
+    draw.text((160, 0), 'HOMEHUB', font = font24, fill = 0)
+    draw.text((310, 0), 'SUN, MAY 7', font = font18, fill = 0)
+    draw.line((0, 29, 400, 25), fill = 0)
+
+    mp = Image.open(os.path.join(picdir, 'cloud.bmp'))
+    Dashboard.paste(bmp, (18,300))
+    draw.text((55, 35), 'Cloudy', font = font18, fill = 0)
+    draw.text((154, 35), '22°', font = font18, fill = 0)
+    draw.text((250, 35), '45%', font = font18, fill = 0)
+    draw.text((330, 35), 'Moderate', font = font18, fill = 0)
+    draw.line((0, 55, 400, 51), fill = 0)
+
+    draw.text((0,59), 'Devices >')    
+    draw.arc((16, 82, 87, 152), 0, 360, fill = 0)
+
+
+    epd.display(epd.getbuffer(Dashboard))
+    time.sleep(2)
+
     epd.Clear()
     logging.info("Goto Sleep...")
     epd.sleep()
