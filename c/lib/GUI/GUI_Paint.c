@@ -187,6 +187,7 @@ parameter:
 void Paint_SetPixel(UWORD Xpoint, UWORD Ypoint, UWORD Color)
 {
     if(Xpoint > Paint.Width || Ypoint > Paint.Height){
+//         Debug("Exceeding display boundaries x:%s, y:%s\r\n", Xpoint, Ypoint);
         Debug("Exceeding display boundaries\r\n");
         return;
     }      

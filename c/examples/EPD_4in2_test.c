@@ -171,40 +171,75 @@ int EPD_4in2_test(void)
 	Paint_SetScale(4);
 	Paint_Clear(WHITE);
 
-	GUI_ReadBmp("./pic/cloud.bmp", 18, 26);
-    Paint_DrawString_EN(55,32,"Cloudy", &Font12, WHITE, BLACK);
-    Paint_DrawString_EN(154,32,"22°", &Font12, WHITE, BLACK);
-    Paint_DrawString_EN(250,32,"45%", &Font12, WHITE, BLACK);
-    Paint_DrawString_EN(330,32,"Moderate", &Font12, WHITE, BLACK);
-    Paint_DrawLine(0, 51, 400, 51, BLACK, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+	Paint_DrawPoint(10, 80, BLACK, DOT_PIXEL_1X1, DOT_STYLE_DFT);
+    Paint_DrawPoint(10, 90, BLACK, DOT_PIXEL_2X2, DOT_STYLE_DFT);
+    Paint_DrawPoint(10, 100, BLACK, DOT_PIXEL_3X3, DOT_STYLE_DFT);
+    Paint_DrawLine(20, 70, 70, 120, BLACK, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+    Paint_DrawLine(70, 70, 20, 120, BLACK, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+    Paint_DrawRectangle(20, 70, 70, 120, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
+    Paint_DrawRectangle(80, 70, 130, 120, BLACK, DOT_PIXEL_1X1, DRAW_FILL_FULL);
+    Paint_DrawCircle(45, 95, 20, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
+    Paint_DrawCircle(105, 95, 20, WHITE, DOT_PIXEL_1X1, DRAW_FILL_FULL);
+    Paint_DrawLine(85, 95, 125, 95, BLACK, DOT_PIXEL_1X1, LINE_STYLE_DOTTED);
+    Paint_DrawLine(105, 75, 105, 115, BLACK, DOT_PIXEL_1X1, LINE_STYLE_DOTTED);
+    Paint_DrawString_EN(10, 0, "waveshare", &Font16, BLACK, WHITE);
+    Paint_DrawString_EN(10, 20, "hello world", &Font12, WHITE, BLACK);
+    Paint_DrawNum(10, 33, 123456789, &Font12, BLACK, WHITE);
+    Paint_DrawNum(10, 50, 987654321, &Font16, WHITE, BLACK);
+    Paint_DrawString_CN(140, 0, "���abc", &Font12CN, GRAY1, GRAY4);
+    Paint_DrawString_CN(140, 40, "���abc", &Font12CN, GRAY2, GRAY3);
+    Paint_DrawString_CN(140, 80, "���abc", &Font12CN, GRAY3, GRAY2);
+    Paint_DrawString_CN(140, 120, "���abc", &Font12CN, GRAY4, GRAY1);
+	
+    Paint_DrawString_CN(220, 0, "΢ѩ����", &Font24CN, GRAY1, GRAY4);
+    Paint_DrawString_CN(220, 40, "΢ѩ����", &Font24CN, GRAY2, GRAY3);
+    Paint_DrawString_CN(220, 80, "΢ѩ����", &Font24CN, GRAY3, GRAY2);
+    Paint_DrawString_CN(220, 120, "΢ѩ����", &Font24CN, GRAY4, GRAY1);
 
-    Paint_DrawString_EN(0, 55, "Devices >", &Font12, WHITE, BLACK);
-    Paint_DrawLine(0, 65, 50, 65, BLACK, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
-    Paint_DrawCircle(45, 105, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
-    Paint_DrawCircle(150, 105, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
-    Paint_DrawCircle(150, 105, 35, GRAY2, DOT_PIXEL_1X1, DRAW_FILL_FULL);
-    Paint_DrawCircle(249, 105, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
-    Paint_DrawCircle(249, 105, 35, GRAY3, DOT_PIXEL_1X1, DRAW_FILL_FULL);
-    Paint_DrawCircle(347, 105, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
-    Paint_DrawCircle(347, 105, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_FULL);
-    Paint_DrawString_EN(30,146,"Computer", &Font12, WHITE, BLACK);
-    Paint_DrawString_EN(127,146,"Computer", &Font12, WHITE, BLACK);
-    Paint_DrawString_EN(225,146,"Computer", &Font12, WHITE, BLACK);
-    Paint_DrawString_EN(323,146,"Computer", &Font12, WHITE, BLACK);
 
-    Paint_DrawLine(0, 161, 400, 161, BLACK, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+    // Paint_DrawString_EN(0, 0, "14:25", &Font16, WHITE, BLACK);
+    // Paint_DrawString_EN(160, 0, "HOMEHUB", &Font20, WHITE, BLACK);
+    // Paint_DrawString_EN(325, 0, "SUN, MAY 7", &Font16, WHITE, BLACK);
+    // Paint_DrawLine(0, 25, 400, 25, BLACK, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
 
-    Paint_DrawString_EN(0, 165, "RasPi >", &Font12, WHITE, BLACK);
-    Paint_DrawLine(0, 175, 50, 175, BLACK, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
-    Paint_DrawLine(0, 65, 50, 65, BLACK, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
-    Paint_DrawCircle(45, 220, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
-    Paint_DrawCircle(150, 220, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
-    Paint_DrawCircle(150, 220, 35, GRAY2, DOT_PIXEL_1X1, DRAW_FILL_FULL);
-    Paint_DrawCircle(249, 220, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
-    Paint_DrawCircle(249, 220, 35, GRAY3, DOT_PIXEL_1X1, DRAW_FILL_FULL);
-    Paint_DrawCircle(347, 220, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
-    Paint_DrawCircle(347, 220, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_FULL);
-    Paint_DrawLine(0, 272, 400, 272, BLACK, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+    // GUI_ReadBmp("./pic/cloud.bmp", 18, 26);
+    // Paint_DrawString_EN(55,32,"Cloudy", &Font12, WHITE, BLACK);
+    // Paint_DrawString_EN(154,32,"22°", &Font12, WHITE, BLACK);
+    // Paint_DrawString_EN(250,32,"45%", &Font12, WHITE, BLACK);
+    // Paint_DrawString_EN(330,32,"Moderate", &Font12, WHITE, BLACK);
+    // Paint_DrawLine(0, 51, 400, 51, BLACK, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+
+    // Paint_DrawString_EN(0, 55, "Devices >", &Font12, WHITE, BLACK);
+    // Paint_DrawLine(0, 65, 50, 65, BLACK, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+    // Paint_DrawCircle(45, 105, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
+    // Paint_DrawCircle(150, 105, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
+    // Paint_DrawCircle(150, 105, 35, GRAY2, DOT_PIXEL_1X1, DRAW_FILL_FULL);
+    // Paint_DrawCircle(249, 105, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
+    // Paint_DrawCircle(249, 105, 35, GRAY3, DOT_PIXEL_1X1, DRAW_FILL_FULL);
+    // Paint_DrawCircle(347, 105, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
+    // Paint_DrawCircle(347, 105, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_FULL);
+    // Paint_DrawString_EN(30,146,"Computer", &Font12, WHITE, BLACK);
+    // Paint_DrawString_EN(127,146,"Computer", &Font12, WHITE, BLACK);
+    // Paint_DrawString_EN(225,146,"Computer", &Font12, WHITE, BLACK);
+    // Paint_DrawString_EN(323,146,"Computer", &Font12, WHITE, BLACK);
+
+    // Paint_DrawLine(0, 161, 400, 161, BLACK, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+
+    // Paint_DrawString_EN(0, 165, "RasPi >", &Font12, WHITE, BLACK);
+    // Paint_DrawLine(0, 175, 50, 175, BLACK, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+    // Paint_DrawLine(0, 65, 50, 65, BLACK, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+    // Paint_DrawCircle(45, 220, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
+    // Paint_DrawCircle(150, 220, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
+    // Paint_DrawCircle(150, 220, 35, GRAY2, DOT_PIXEL_1X1, DRAW_FILL_FULL);
+    // Paint_DrawCircle(249, 220, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
+    // Paint_DrawCircle(249, 220, 35, GRAY3, DOT_PIXEL_1X1, DRAW_FILL_FULL);
+    // Paint_DrawCircle(347, 220, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_EMPTY);
+    // Paint_DrawCircle(347, 220, 35, BLACK, DOT_PIXEL_1X1, DRAW_FILL_FULL);
+    // Paint_DrawLine(0, 272, 400, 272, BLACK, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+
+    // Paint_DrawString_EN(18, 280, "PI-HOLE: ACTIVE", &Font12, WHITE, BLACK);
+    // Paint_DrawString_EN(170, 280, "192.168.0.136", &Font12, WHITE, BLACK);
+    // Paint_DrawString_EN(282, 280, "AIRPORT: ACTIVE", &Font12, WHITE, BLACK);
 	
 	EPD_4IN2_4GrayDisplay(BlackImage);
 	DEV_Delay_ms(2000);
