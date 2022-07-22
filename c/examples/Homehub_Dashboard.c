@@ -1,11 +1,11 @@
 /*****************************************************************************
-* | File      	:   EPD_4in2_test.c
-* | Author      :   Waveshare team
-* | Function    :   4.2inch e-paper test demo
+* | File      	:   Homehub_dashboard.c
+* | Author      :   Colin Laganier
+* | Function    :   4.2inch e-paper dashboard
 * | Info        :
 *----------------
 * |	This version:   V1.0
-* | Date        :   2019-06-13
+* | Date        :   2022-07-12
 * | Info        :
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,7 +32,7 @@
 #include <string.h>
 #include <time.h> 
 
-int EPD_4in2_test(void)
+int Homehub_Dashboard(void)
 {
     printf("EPD_4IN2_test Demo\r\n");
     if(DEV_Module_Init()!=0){
@@ -57,33 +57,13 @@ int EPD_4in2_test(void)
         printf("Failed to apply for black memory...\r\n");
         return -1;
     }
-    printf("Paint_NewImage\r\n");
+    // printf("Paint_NewImage\r\n");
     Paint_NewImage(BlackImage, EPD_4IN2_WIDTH, EPD_4IN2_HEIGHT, 0, WHITE);
-    
-
-#if 1  // show bmp
-
-    EPD_4IN2_Init_Fast();
-    
-    // printf("show window BMP-----------------\r\n");
-    // Paint_SelectImage(BlackImage);
-    // Paint_Clear(WHITE);
-    // GUI_ReadBmp("./pic/100x100.bmp", 10, 10);
-    // EPD_4IN2_Display(BlackImage);
-    // DEV_Delay_ms(2000);
-
-    printf("show bmp------------------------\r\n");
-    Paint_SelectImage(BlackImage);
-    GUI_ReadBmp("./pic/cloud.bmp", 0, 0);
-    EPD_4IN2_Display(BlackImage);
-    DEV_Delay_ms(2000);
-
-#endif        
 
 #if 1
     EPD_4IN2_Init_Fast();
-	EPD_4IN2_Clear();
-	EPD_4IN2_Init_4Gray();
+	// EPD_4IN2_Clear();
+	// EPD_4IN2_Init_4Gray();
 	// printf("show Gray------------------------\r\n");
 	free(BlackImage);
 	BlackImage = NULL;
@@ -92,7 +72,7 @@ int EPD_4in2_test(void)
         printf("Failed to apply for black memory...\r\n");
         return -1;
     }
-	Paint_NewImage(BlackImage, EPD_4IN2_WIDTH, EPD_4IN2_HEIGHT, 0, WHITE);
+	// Paint_NewImage(BlackImage, EPD_4IN2_WIDTH, EPD_4IN2_HEIGHT, 0, WHITE);
 	Paint_SetScale(4);
 	Paint_Clear(WHITE);
 
@@ -146,19 +126,6 @@ int EPD_4in2_test(void)
 
 	EPD_4IN2_4GrayDisplay(BlackImage);
 	DEV_Delay_ms(20000);
-
-	Paint_Clear(WHITE);
-    EPD_4IN2_4GrayDisplay(gImage_4in2_4Gray1);
-	DEV_Delay_ms(2000);
-
-	GUI_ReadBmp_4Gray("./pic/4in2_Scale.bmp",0 , 0);
-	EPD_4IN2_4GrayDisplay(BlackImage);
-	DEV_Delay_ms(2000);
-	
-	Paint_Clear(WHITE);
-    GUI_ReadBmp("./pic/100x100.bmp", 20, 20);
-    EPD_4IN2_4GrayDisplay(BlackImage);
-	DEV_Delay_ms(2000);
 #endif	
     EPD_4IN2_Init_Fast();
     EPD_4IN2_Clear();
