@@ -150,17 +150,19 @@ try:
     time.sleep(2)
 
     font12 = ImageFont.truetype(os.path.join(picdir, 'SourceSansPro.ttf'), 12)
+    powerFont = ImageFont.truetype(os.path.join(picdir, 'ArialBold.ttf'), 15)
 
 
     logging.info("Dashboard")
     Dashboard = Image.new('1', (epd.width, epd.height), 255)
     draw = ImageDraw.Draw(Dashboard)
-    draw.text((, ), '', font = font, fill = 0)
+    # draw.text((, ), '', font = font, fill = 0)
     draw.text((0, 0), '14:25', font = font18, fill = 0)
     draw.text((160, 0), 'HOMEHUB', font = font24, fill = 0)
     draw.text((310, 0), 'SUN, MAY 7', font = font18, fill = 0)
     draw.line((0, 29, 400, 25), fill = 0)
 
+    draw.text((0,35) 'Weather >', font18, fill = 0)
     mp = Image.open(os.path.join(picdir, 'cloud.bmp'))
     Dashboard.paste(bmp, (18,300))
     draw.text((55, 35), 'Cloudy', font = font18, fill = 0)
@@ -169,8 +171,26 @@ try:
     draw.text((330, 35), 'Moderate', font = font18, fill = 0)
     draw.line((0, 55, 400, 51), fill = 0)
 
-    draw.text((0,59), 'Devices >')    
+    draw.text((0,59), 'Devices >', font = font18, fill = 0)
+    draw.line((0, 66, 51, 66), fill = 0)
     draw.arc((16, 82, 87, 152), 0, 360, fill = 0)
+    draw.text((75,77), 'ON', font = powerFont, fill = 1)
+
+    draw.line((0,244,400,244), fill = 0)
+    draw.text((0,251), 'RasPi >', font = font18, fill = 0)   
+    draw.line((0, 264, 48, 264), fill = 0)
+    draw.text((115,251), 'CPU: 27%', font = font18, fill = 0)
+    draw.text((223,251), 'CPU: 43°', font = font18, fill = 0)
+    draw.text((318, 251), '1.82GB', font = font18, fill = 0)
+    
+
+    draw.line((0, 272, 400, 272), fill = 0)    
+
+    draw.text((18, 280), 'PI-HOLE: ACTIVE', font = font18, fill = 0)
+    draw.text((170, 280), '192.168.0.136', font = font18, fill = 0)
+    draw.text((282, 280), 'AIRPORT: ACTIVE', font = font18, fill = 0)
+
+
 
 
     epd.display(epd.getbuffer(Dashboard))
