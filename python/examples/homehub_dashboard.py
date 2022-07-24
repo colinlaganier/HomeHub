@@ -2,18 +2,19 @@
 # -*- coding:utf-8 -*-
 import sys
 import os
-
-picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'pic')
-libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
-if os.path.exists(libdir):
-    sys.path.append(libdir)
-
 import json
 import psutil
 import subprocess
 import logging
 import time
 import traceback
+import re
+
+picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'pic')
+libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
+if os.path.exists(libdir):
+    sys.path.append(libdir)
+
 from waveshare_epd import epd4in2
 from PIL import Image,ImageDraw,ImageFont
 from datetime import datetime
