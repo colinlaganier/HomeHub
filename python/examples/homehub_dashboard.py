@@ -2,6 +2,13 @@
 # -*- coding:utf-8 -*-
 import sys
 import os
+
+picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'pic')
+libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
+if os.path.exists(libdir):
+    sys.path.append(libdir)
+
+import json
 import psutil
 import subprocess
 import logging
@@ -12,14 +19,10 @@ from PIL import Image,ImageDraw,ImageFont
 from datetime import datetime
 from gpiozero import CPUTemperature
 
-picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'pic')
-libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
-if os.path.exists(libdir):
-    sys.path.append(libdir)
 
 logging.basicConfig(level=logging.DEBUG)
 
-json_file = weather_data.json
+json_file = "weather_data.json"
 with open(json_file, "r") as data_file:
     weather_data = json.load(data_file)
 
@@ -184,10 +187,10 @@ try:
     Dashboard.paste(bmp, (165,38))
     Dashboard.paste(bmp, (225,38))
     Dashboard.paste(bmp, (295,38))
-    draw.text((110, 35), weather_data["weather"], font = font18, fill = 0)
-    draw.text((195, 35), weather_data["weather"] + '°', font = font18, fill = 0)
-    draw.text((255, 35), weather_data["precipitation"] + '%', font = font18, fill = 0)
-    draw.text((325, 35), aqi[weather_data["air_quality"]], font = font18, fill = 0)
+    draw.text((110, 35), str(weather_data["weather_data"]["weather"]), font = font18, fill = 0)
+    draw.text((195, 35), str(weather_data["weather_data"]["temperature"]) + '°', font = font18, fill = 0)
+    draw.text((255, 35), str(weather_data["weather_data"]["precipitation"]) + '%', font = font18, fill = 0)
+    draw.text((325, 35), aqi[weather_data["weather_data"]["air_quality"]], font = font18, fill = 0)
     draw.line((0, 62, 400, 62), fill = 0)
 
     draw.text((0,65), 'Devices >', font = font18, fill = 0)
@@ -216,7 +219,7 @@ try:
     epd.display(epd.getbuffer(Dashboard))
     time.sleep(2)
 
-    epd.Clear()
+#    epd.Clear()
     logging.info("Goto Sleep...")
     epd.sleep()
     
@@ -227,5 +230,3 @@ except KeyboardInterrupt:
     logging.info("ctrl + c:")
     epd4in2.epdconfig.module_exit()
     exit()
-
-def api_call((r))
