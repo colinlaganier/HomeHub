@@ -189,7 +189,7 @@ try:
     Dashboard.paste(bmp, (225,38))
     Dashboard.paste(bmp, (295,38))
     draw.text((110, 35), str(weather_data["weather_data"]["weather"]), font = font18, fill = 0)
-    draw.text((195, 35), str(weather_data["weather_data"]["temperature"]) + '°', font = font18, fill = 0)
+    draw.text((195, 35), str(round(weather_data["weather_data"]["temperature"])) + '°', font = font18, fill = 0)
     draw.text((255, 35), str(weather_data["weather_data"]["precipitation"]) + '%', font = font18, fill = 0)
     draw.text((325, 35), aqi[weather_data["weather_data"]["air_quality"]], font = font18, fill = 0)
     draw.line((0, 62, 400, 62), fill = 0)
@@ -204,7 +204,7 @@ try:
     draw.line((0, 265, 46, 265), fill = 0)
     draw.text((90, 245), cpuActivity, font = font18, fill = 0)
     draw.text((205, 245), cpuTemp, font = font18, fill = 0)
-    draw.text((315, 245), ramActivity, font = font18, fill = 0)
+    draw.text((310, 245), ramActivity, font = font18, fill = 0)
     
 
     draw.line((0, 272, 400, 272), fill = 0) 

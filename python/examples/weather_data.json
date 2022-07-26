@@ -1,1 +1,1 @@
-{"status": {"timestamp": 1658673948, "error": 0, "error_code": -1, "error_message": ""}, "weather_data": {"temperature": 28.0, "weather": "Partly cloudy", "precipitation": 0, "air_quality": 1}}
+{"status": {"timestamp": 1658828515, "error": 0, "error_code": -1, "error_message": ""}, "weather_data": {"temperature": 17.0, "weather": "Cloudy", "precipitation": 83, "air_quality": 4}}
